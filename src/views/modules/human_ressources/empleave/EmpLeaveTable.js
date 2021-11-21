@@ -148,33 +148,36 @@ const EmpLeaveTable = ({
                     <CIcon name={"cilSettings"} size={"lg"} />
                   </CDropdownToggle>
                   <CDropdownMenu>
-                    <CDropdownItem
-                      hidden={item.status != "New"}
-                      onClick={() => {
-                        if (approvePermission === 1) {
-                          handleApprove(item.EmployeeLeaveID);
-                        } else {
-                          alert("you dont have permission");
-                        }
-                      }}
-                    >
-                      <Check className="c-iconmd-lg mr-3" />
-                      Approve
-                    </CDropdownItem>
-
-                    <CDropdownItem
-                      hidden={item.status != "New"}
-                      onClick={() => {
-                        if (declinePermission === 1) {
-                          handleCancel(item.EmployeeLeaveID);
-                        } else {
-                          alert("you dont have permission");
-                        }
-                      }}
-                    >
-                      <X className="c-iconmd-lg mr-3" />
-                      Decline
-                    </CDropdownItem>
+                    {approvePermission === 1 && (
+                      <CDropdownItem
+                        hidden={item.status != "New"}
+                        onClick={() => {
+                          if (approvePermission === 1) {
+                            handleApprove(item.EmployeeLeaveID);
+                          } else {
+                            alert("you dont have permission");
+                          }
+                        }}
+                      >
+                        <Check className="c-iconmd-lg mr-3" />
+                        Approve
+                      </CDropdownItem>
+                    )}
+                    {declinePermission === 1 && (
+                      <CDropdownItem
+                        hidden={item.status != "New"}
+                        onClick={() => {
+                          if (declinePermission === 1) {
+                            handleCancel(item.EmployeeLeaveID);
+                          } else {
+                            alert("you dont have permission");
+                          }
+                        }}
+                      >
+                        <X className="c-iconmd-lg mr-3" />
+                        Decline
+                      </CDropdownItem>
+                    )}
 
                     <CDropdownItem
                       hidden={item.status != "New"}

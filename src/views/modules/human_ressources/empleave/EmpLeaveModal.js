@@ -189,22 +189,24 @@ const EmpLeaveModal = ({
                 <CLabel htmlFor="nr-emp">Employee Name</CLabel>
                 {emplist?.length === 1 ? (
                   <CSelect
-                    value={emplist[0]?.NameEnglish}
+                    value={
+                      leave_selected_obj
+                        ? leave_selected_obj.EmployeeID
+                        : data.empid
+                    }
+                    ref={empid}
                     name="empid"
                     onChange={handleInput}
                     aria-label="Default select example"
                   >
-                    {/* <option> Please select </option> */}
-                    {
-                      <option value={emplist[0].EmployeeID}>
-                        {emplist[0]?.NameEnglish}
-                      </option>
-                    }
-                    {/* {emplist != undefined
-                    ? emplist.map((team) => (
-                        <option value={team.EmployeeID}>{team.Name}</option>
-                      ))
-                    : data.empid} */}
+                    <option> Please select </option>
+                    {emplist != undefined
+                      ? emplist.map((team) => (
+                          <option value={team.EmployeeID}>
+                            {team.NameEnglish}
+                          </option>
+                        ))
+                      : ""}
                   </CSelect>
                 ) : (
                   <CSelect

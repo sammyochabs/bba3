@@ -160,24 +160,25 @@ const EmpLoanModal = ({
             <CCol md="6">
               <CFormGroup>
                 <CLabel htmlFor="nf-grade">Employee Name</CLabel>
-                {emplist?.length === 1 ? (
+                {emplist.length === 1 ? (
                   <CSelect
-                    value={emplist[0]?.NameEnglish}
+                    value={
+                      loan_selected_obj
+                        ? loan_selected_obj.EmployeeID
+                        : data.empid
+                    }
                     name="empid"
                     onChange={handleInput}
                     aria-label="Default select example"
                   >
-                    {/* <option> Please select </option> */}
-                    {
-                      <option value={emplist[0].EmployeeID}>
-                        {emplist[0]?.NameEnglish}
-                      </option>
-                    }
-                    {/* {emplist != undefined
-                    ? emplist.map((team) => (
-                        <option value={team.EmployeeID}>{team.Name}</option>
-                      ))
-                    : data.empid} */}
+                    <option> Please select </option>
+                    {emplist != undefined
+                      ? emplist.map((employee) => (
+                          <option value={employee.EmployeeID}>
+                            {employee.NameEnglish}
+                          </option>
+                        ))
+                      : data.empid}
                   </CSelect>
                 ) : (
                   <CSelect
