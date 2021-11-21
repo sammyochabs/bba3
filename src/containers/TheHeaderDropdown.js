@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   CBadge,
   CDropdown,
@@ -6,26 +6,26 @@ import {
   CDropdownMenu,
   CDropdownToggle,
   CImg,
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { Link } from 'react-router-dom'
+} from "@coreui/react";
+import CIcon from "@coreui/icons-react";
+import { Link } from "react-router-dom";
 //import Avatar from "src/assets/images/bba-logo.png";
-import { fetchEmployeeProfile } from 'src/actions/employee'
-import { useEffect, useState } from 'react'
+import { fetchEmployeeProfile } from "src/actions/employee";
+import { useEffect, useState } from "react";
 const TheHeaderDropdown = () => {
   const resetLocalStorage = () => {
-    localStorage.removeItem('keyAPP')
-    localStorage.removeItem('currentModule')
-    localStorage.removeItem('userName')
-    localStorage.removeItem('userID')
-    localStorage.removeItem('roleID')
-  }
-  const userID = localStorage.getItem('userID')
-  const [userInfo, setuserInfo] = useState([])
+    localStorage.removeItem("keyAPP");
+    localStorage.removeItem("currentModule");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userID");
+    localStorage.removeItem("roleid");
+  };
+  const userID = localStorage.getItem("userID");
+  const [userInfo, setuserInfo] = useState([]);
   useEffect(async () => {
-    setuserInfo(await fetchEmployeeProfile(userID))
-    console.log('userinfo', userInfo)
-  }, [])
+    setuserInfo(await fetchEmployeeProfile(userID));
+    console.log("userinfo", userInfo);
+  }, []);
   return (
     <CDropdown inNav className="c-header-nav-items mx-2" direction="down">
       <CDropdownToggle className="c-header-nav-link" caret={false}>
@@ -41,19 +41,19 @@ const TheHeaderDropdown = () => {
         <CDropdownItem header tag="div" color="light" className="text-center">
           <strong>Account</strong>
         </CDropdownItem>
-        <CDropdownItem style={{ flexDirection: 'column', marginTop: '4px' }}>
+        <CDropdownItem style={{ flexDirection: "column", marginTop: "4px" }}>
           <Link
-            style={{ textDecoration: 'none', marginBottom: 10 }}
+            style={{ textDecoration: "none", marginBottom: 10 }}
             to="/profile"
           >
             <CIcon name="cil-user" className="mfe-2" />
             Profile
           </Link>
         </CDropdownItem>
-        <CDropdownItem style={{ flexDirection: 'column' }}>
+        <CDropdownItem style={{ flexDirection: "column" }}>
           <Link
             onClick={resetLocalStorage}
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: "none" }}
             to="/login"
           >
             <CIcon name="cil-user" className="mfe-2" />
@@ -62,10 +62,10 @@ const TheHeaderDropdown = () => {
         </CDropdownItem>
       </CDropdownMenu>
     </CDropdown>
-  )
-}
+  );
+};
 
-export default TheHeaderDropdown
+export default TheHeaderDropdown;
 
 // import React from 'react'
 // import {

@@ -96,8 +96,6 @@ export const getUserProgramsPermisions = async (userID, roleid) => {
 
   if (response) {
     return response?.data?.Program;
-  } else {
-    alert("Failed to fetch please retry");
   }
 
   // .then((res) => {

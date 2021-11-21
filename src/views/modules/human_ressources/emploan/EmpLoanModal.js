@@ -162,6 +162,7 @@ const EmpLoanModal = ({
                 <CLabel htmlFor="nf-grade">Employee Name</CLabel>
                 {emplist.length === 1 ? (
                   <CSelect
+                    disabled={true}
                     value={
                       loan_selected_obj
                         ? loan_selected_obj.EmployeeID
@@ -182,6 +183,7 @@ const EmpLoanModal = ({
                   </CSelect>
                 ) : (
                   <CSelect
+                    disabled={true}
                     value={
                       loan_selected_obj
                         ? loan_selected_obj.EmployeeID

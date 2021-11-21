@@ -189,6 +189,7 @@ const EmpLeaveModal = ({
                 <CLabel htmlFor="nr-emp">Employee Name</CLabel>
                 {emplist?.length === 1 ? (
                   <CSelect
+                    disabled={true}
                     value={
                       leave_selected_obj
                         ? leave_selected_obj.EmployeeID
@@ -210,6 +211,7 @@ const EmpLeaveModal = ({
                   </CSelect>
                 ) : (
                   <CSelect
+                    disabled={true}
                     value={
                       leave_selected_obj
                         ? leave_selected_obj.EmployeeID

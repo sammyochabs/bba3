@@ -25,17 +25,13 @@ const MasterPage = () => {
 
   var loggedInUser = localStorage.userName;
 
-  const fetchPermissions = async () => {
+  useEffect(async () => {
     const fetchedPermissions = await getUserPermissions(
       localStorage.getItem("userID"),
       localStorage.getItem("roleid")
     );
     console.log("fetchedPermissions", fetchedPermissions);
     setPermissions(fetchedPermissions);
-  };
-
-  useEffect(() => {
-    fetchPermissions();
   }, []);
 
   useEffect(() => {
