@@ -30,6 +30,7 @@ const EmpLoanModal = ({
   loantypes,
   loanfunds,
   loan_selected_obj,
+  isUpdate,
 }) => {
   const [data, setData] = useState({});
   const [sactionDate, setSactionDate] = useState(new Date());
@@ -162,7 +163,7 @@ const EmpLoanModal = ({
                 <CLabel htmlFor="nf-grade">Employee Name</CLabel>
                 {emplist.length === 1 ? (
                   <CSelect
-                    disabled={true}
+                    disabled={isUpdate}
                     value={
                       loan_selected_obj
                         ? loan_selected_obj.EmployeeID
@@ -183,7 +184,7 @@ const EmpLoanModal = ({
                   </CSelect>
                 ) : (
                   <CSelect
-                    disabled={true}
+                    disabled={isUpdate}
                     value={
                       loan_selected_obj
                         ? loan_selected_obj.EmployeeID

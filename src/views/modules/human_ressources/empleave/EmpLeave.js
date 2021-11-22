@@ -37,6 +37,7 @@ const EmpLeave = () => {
   const [employee, setEmployee] = useState({});
   const [filteredLeaveData, setFilteredLeaveData] = useState([]);
   const [accessAllEmployeeLeaves, setAccessAllEmployeeLeaves] = useState(true);
+  const [isUpdate, setIsUpdate] = useState(false);
 
   const toggle = () => {
     setModal(!modal);
@@ -99,6 +100,7 @@ const EmpLeave = () => {
               programs.leaveManagementEmployee?.Add === 1
             ) {
               // history.push("/HR/AddEducation");
+              setIsUpdate(false);
               toggle();
             } else {
               alert("You dont have this permission");
@@ -110,6 +112,8 @@ const EmpLeave = () => {
         </CButton>
       </div>
       <EmpLeaveTable
+        setIsUpdate={setIsUpdate}
+        isUpdate={isUpdate}
         editPermission={
           programs && accessAllEmployeeLeaves === true
             ? programs.leaveManagement?.Edit
@@ -149,6 +153,7 @@ const EmpLeave = () => {
         emplist={emplist}
         emplist={accessAllEmployeeLeaves === true ? emplist : [employee]}
         leavelist={leavelist}
+        isUpdate={isUpdate}
       />
     </CCard>
   );

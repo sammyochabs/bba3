@@ -28,6 +28,8 @@ const EmpLeaveTable = ({
   deletePermission,
   approvePermission,
   declinePermission,
+  isUpdate,
+  setIsUpdate,
 }) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
@@ -184,6 +186,7 @@ const EmpLeaveTable = ({
                       onClick={() => {
                         if (editPermission === 1) {
                           handleUpdate(item.EmployeeLeaveID, "Update");
+                          setIsUpdate(true);
                         } else {
                           alert("you dont have permission");
                         }
@@ -196,6 +199,7 @@ const EmpLeaveTable = ({
                       onClick={() => {
                         if (viewPermission === 1) {
                           handleUpdate(item.EmployeeLeaveID, "View");
+                          setIsUpdate(false);
                         } else {
                           alert("you dont have permission");
                         }
@@ -209,6 +213,7 @@ const EmpLeaveTable = ({
                       onClick={() => {
                         if (deletePermission === 1) {
                           handleDelete(item.EmployeeLeaveID, "Delete");
+                          setIsUpdate(false);
                         } else {
                           alert("you dont have permission");
                         }
@@ -233,6 +238,7 @@ const EmpLeaveTable = ({
         emplist={emplist}
         leavelist={leavelist}
         leave_selected_obj={leave_selected_obj}
+        isUpdate={isUpdate}
       />
     </div>
   );

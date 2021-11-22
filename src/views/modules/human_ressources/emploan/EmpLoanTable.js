@@ -39,6 +39,8 @@ const EmpLoanTable = ({
   deletePermission,
   approvePermission,
   declinePermission,
+  isUpdate,
+  setIsUpdate,
 }) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
@@ -191,6 +193,7 @@ const EmpLoanTable = ({
                       onClick={() => {
                         if (editPermission === 1) {
                           handleUpdate(item.EmployeeLoanID, "Update");
+                          setIsUpdate(true);
                         } else {
                           alert("you dont have permission");
                         }
@@ -203,6 +206,7 @@ const EmpLoanTable = ({
                       onClick={() => {
                         if (viewPermission === 1) {
                           handleUpdate(item.EmployeeLoanID, "View");
+                          setIsUpdate(false);
                         } else {
                           alert("you dont have permission");
                         }
@@ -216,6 +220,7 @@ const EmpLoanTable = ({
                       onClick={() => {
                         if (deletePermission === 1) {
                           handleDelete(item.EmployeeLoanID);
+                          setIsUpdate(false);
                         } else {
                           alert("you dont have permission");
                         }
@@ -241,6 +246,7 @@ const EmpLoanTable = ({
         emplist={emplist}
         loantypes={loantypes}
         loanfunds={loanfunds}
+        isUpdate={isUpdate}
       />
     </div>
   );

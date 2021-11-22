@@ -38,6 +38,7 @@ const EmpLoan = () => {
   const [employee, setEmployee] = useState({});
   const [filteredLoanData, setFilteredLoanData] = useState([]);
   const [accessAllEmployeeLoans, setAccessAllEmployeeLoans] = useState(true);
+  const [isUpdate, setIsUpdate] = useState(false);
 
   const toggle = () => {
     setModal(!modal);
@@ -103,6 +104,7 @@ const EmpLoan = () => {
               programs?.loanManagementEmployee?.Add === 1
             ) {
               // history.push("/HR/AddEducation");
+              setIsUpdate(false);
               toggle();
             } else {
               alert("You dont have this permission");
@@ -114,6 +116,8 @@ const EmpLoan = () => {
         </CButton>
       </div>
       <EmpLoanTable
+        isUpdate={isUpdate}
+        setIsUpdate={setIsUpdate}
         editPermission={
           programs && accessAllEmployeeLoans === true
             ? programs.loanManagement?.Edit
@@ -154,6 +158,7 @@ const EmpLoan = () => {
         emplist={accessAllEmployeeLoans === true ? emplist : [employee]}
         loantypes={loantypes}
         loanfunds={loanfunds}
+        isUpdate={isUpdate}
       />
     </CCard>
   );

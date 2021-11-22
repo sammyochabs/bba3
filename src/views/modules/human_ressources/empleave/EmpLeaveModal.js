@@ -36,6 +36,7 @@ const EmpLeaveModal = ({
   emplist,
   leavelist,
   leave_selected_obj,
+  isUpdate,
 }) => {
   const empid = useRef(null);
   const [data, setData] = useState({});
@@ -189,7 +190,7 @@ const EmpLeaveModal = ({
                 <CLabel htmlFor="nr-emp">Employee Name</CLabel>
                 {emplist?.length === 1 ? (
                   <CSelect
-                    disabled={true}
+                    disabled={isUpdate}
                     value={
                       leave_selected_obj
                         ? leave_selected_obj.EmployeeID
@@ -211,7 +212,7 @@ const EmpLeaveModal = ({
                   </CSelect>
                 ) : (
                   <CSelect
-                    disabled={true}
+                    disabled={isUpdate}
                     value={
                       leave_selected_obj
                         ? leave_selected_obj.EmployeeID
